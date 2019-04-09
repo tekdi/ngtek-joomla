@@ -1,0 +1,9 @@
+<div class="custom-container min-height-131">
+    <div *ngFor="let record of articleData; let i = index">
+        <div *ngIf="alias == record.alias">
+        <div innerHTML="{{record.title | json}}"></div>
+            <div innerHTML="{{record.fulltext | json}}"></div>
+            <div innerHTML="{{record.introtext}}"></div>
+        </div>
+    </div>   
+</div>    
