@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { ContentLibService } from '../../../projects/content-lib/src/lib/content-lib.service';
+import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { ContentLibService } from 'projects/content-lib/src/lib/content-lib.service';
+
 
 @Component({
   selector: 'app-article',
@@ -11,12 +12,11 @@ import { environment } from '../../environments/environment';
 })
 export class ArticleComponent implements OnInit {
 
-  article_id: Number;
   apiBaseUrl: String;
   articleAlias: String;
   articleData;
   alias;
-  constructor(private _httpClient: HttpClient,
+  constructor(private _httpClient: HttpClientModule,
               private _contentLibService: ContentLibService,
               private _router: Router,
               private _actR: ActivatedRoute ) {
@@ -24,18 +24,13 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit() {
     this.apiBaseUrl = environment.apiBaseUrl;
-    console.log('this.apiBaseUrl', this.apiBaseUrl);
-    console.log('this._router.url', this._router.url);
     this._actR.params.subscribe(params => {
-        console.log('I am here', this._actR.snapshot.routeConfig.path);
-        this.alias = this._actR.snapshot.routeConfig.path;
         this._contentLibService.getArticle(this.apiBaseUrl, this._actR.snapshot.routeConfig.path).subscribe(data => {
           if (data) {
             this.articleData = data;
-            console.log(this.articleData, 'this.articleData');
-          }
-        });
-    });
+         }
+      });
+   });
   }
 }
 

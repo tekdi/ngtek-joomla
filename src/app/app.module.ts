@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
-import { ContentLibModule } from 'content-lib';
+import { HttpClientModule, HttpClient } from '@angular/common/http'; 
+
 
 @NgModule({
   declarations: [
@@ -14,9 +15,9 @@ import { ContentLibModule } from 'content-lib';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ContentLibModule
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
