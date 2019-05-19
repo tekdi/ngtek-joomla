@@ -1,48 +1,46 @@
-<body class="bgColor">
-    <div class="container services">
-        <div class="clearfix pt-2">
-            <form class="example form-row form-inline float-right m-2" action="/action_page.php">
-                <div class="col-auto">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search...">
-                        <div class="input-group-append">
-                            <button class="btn btn-secondary" type="button">
-                            <i class="fa fa-search"></i>
-                            </button>
-                        </div>
+<div class="container services pr-0">
+    <div class="clearfix pt-2">
+        <form class="form-row form-inline float-right m-2">
+            <div class="col-auto">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="button">
+                        <i class="fa fa-search"></i>
+                        </button>
                     </div>
-                </div> 
-                <div class="form-group col-auto">
-                    <select name="Category" class="form-control">
-                        <option value="">Select Category</option>
-                        <option value="2">Uncategorized</option>
-                        <option value="8">Sports</option>
-                        <option value="9">News</option>
-                        <option value="10">Health</option>
-                        <option value="11">Education</option>
-                        <option value="12">Career</option>
-                    </select>
-                </div>   
-            </form>
-        </div>
-        <div class="row pt-3">
-            <div class="col-md-6 mb-4" *ngFor="let data of articleData">
-                <h4 class="headline"><a href="#">{{data.title}}</a></h4>
-                <hr/>
-                <dl class="details">
-                    <dt>Details</dt>
-                    <dd>Created By {{data.created_by.name}}</dd>
-                    <dd>Category:<a href="#">{{data.catid.title}}</a></dd>
-                    <dd><i class="fa fa-calendar mr-2" aria-hidden="true"></i>Published:{{data.created | slice:0:11}}</dd>
-                    <dd><i class="fa fa-eye mr-2"></i>Hits:{{data.hits}}</dd>
-                </dl>
-                <div class="text-para">
-                    <p [innerHTML]="data.introtext"></p>
                 </div>
+            </div> 
+            <div class="form-group col-auto">
+                <select name="Category" class="form-control">
+                    <option value="">Select Category</option>
+                    <option value="2">Uncategorized</option>
+                    <option value="8">Sports</option>
+                    <option value="9">News</option>
+                    <option value="10">Health</option>
+                    <option value="11">Education</option>
+                    <option value="12">Career</option>
+                </select>
+            </div>   
+        </form>
+    </div>
+    <div class="row pt-3">
+        <div class="col-md-6 mb-4" *ngFor="let data of articleData">
+            <h4 class="headline"><a href="#">{{data.title}}</a></h4>
+            <hr/>
+            <dl class="details">
+                <dt>Details</dt>
+                <dd>Created By {{data.created_by.name}}</dd>
+                <dd>Category:<a href="#">{{data.catid.title}}</a></dd>
+                <dd><i class="fa fa-calendar mr-2" aria-hidden="true"></i>Published:{{data.created | slice:0:11}}</dd>
+                <dd><i class="fa fa-eye mr-2"></i>Hits:{{data.hits}}</dd>
+            </dl>
+            <div class="text-para">
+                <p [innerHTML]="data.introtext"></p>
             </div>
-        </div> 
-    </div>  
-</body>   
+        </div>
+    </div> 
+</div>  
   
 
 

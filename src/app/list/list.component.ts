@@ -10,20 +10,18 @@ import { ContentLibService } from 'projects/content-lib/src/lib/content-lib.serv
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  apiBaseUrl: String;
-  articleAlias: String;
+  articleAlias: string;
   articleData;
   alias;
-  constructor(private _httpClient: HttpClientModule,
-              private _contentLibService: ContentLibService,
-              private _router: Router,
-              private _actR: ActivatedRoute ) {
+  constructor(private httpClient: HttpClientModule,
+              private contentLibService: ContentLibService,
+              private router: Router,
+              private actR: ActivatedRoute ) {
    }
 
   ngOnInit() {
-    this.apiBaseUrl = environment.apiBaseUrl;
-    this._actR.params.subscribe(params => {
-        this._contentLibService.getArticle(this.apiBaseUrl, this._actR.snapshot.routeConfig.path).subscribe(data => {
+    this.actR.params.subscribe(params => {
+        this.contentLibService.getArticle(this.actR.snapshot.routeConfig.path).subscribe(data => {
           if (data) {
             this.articleData = data;
          }

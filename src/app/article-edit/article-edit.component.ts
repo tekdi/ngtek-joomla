@@ -20,6 +20,7 @@ export class ArticleEditComponent implements OnInit {
   apiBaseUrl: string;
   content;
   articleData;
+  articleForm;
 
   constructor(
     private fb: FormBuilder,

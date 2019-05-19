@@ -11,6 +11,7 @@ import { ListComponent } from './list/list.component';
 import { ArticleEditComponent } from './article-edit/article-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContentLibModule } from 'projects/content-lib/src/lib/content-lib.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -27,7 +28,8 @@ import { ContentLibModule } from 'projects/content-lib/src/lib/content-lib.modul
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ContentLibModule.forRoot(environment)
+    ContentLibModule.forRoot(environment),
+    FormsModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [HttpClientModule],
