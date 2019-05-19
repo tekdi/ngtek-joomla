@@ -7,12 +7,16 @@ import { ArticleComponent } from './article/article.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http'; 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { HeaderComponent } from './header/header.component';
+import { ListComponent } from './list/list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArticleComponent
+    ArticleComponent,
+    HeaderComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
