@@ -1,0 +1,22 @@
+<form [formGroup]="articleForm" (ngSubmit)="onSubmit()" class="container">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" formControlName="title">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="alias">Alias</label>
+        <input type="text" class="form-control" id="alias" formControlName="alias">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="introText">Short Description</label>
+      <input type="textarea" class="form-control" id="introText" formControlName="introText">
+    </div>
+    <div class="form-group">
+        <label for="fullText">Long Description</label>
+        <textarea rows="5" class="form-control" id="fullText" formControlName="fullText"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+  {{ articleForm.value | json }}

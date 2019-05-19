@@ -1,27 +1,60 @@
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
+import { Router } from "@angular/router";
+import { HttpClient } from "@angular/common/http";
+import { Injectable, Inject } from "@angular/core";
+import "rxjs/add/operator/map";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
-
 @Injectable()
 export class ContentLibService {
+  limitstart = 0;
+  limit = 20;
+  listOrder = "ASC";
+  catId: number = null;
+  searchText: string = null;
 
-    constructor(private _httpClient: HttpClient, private _router: Router) {
-    }
+  constructor(
+    private _httpClient: HttpClient,
+    private _router: Router,
+    @Inject("env") private env
+  ) {}
 
-    getArticle(apiBaseUrl, article_alias) {
-        const url = apiBaseUrl + 'index.php?option=com_api&app=articles&resource=article&format=raw&article_alias=' + article_alias;
-        return this._httpClient.get(url).map(data => {
-            if (article_alias) {
-               // console.log(data, 'data');
-                if (data) {
-                    return data['data']['data']['results'];
-                }
-            }
-        });
-    }
+  getArticle(id) {
+    const url =
+      `${this.env.apiBaseUrl}index.php?option=com_api&app=articles&resource=article&format=raw&id=` +
+      id;
+    return this._httpClient.get(url).map(data => {
+        if (data) {
+            return data["data"]["data"]["results"];
+        }
+    });
+  }
+
+  setCategory(catId: number) {
+    this.catId = catId;
+  }
+
+  setSearchText(searchText: string) {
+    this.searchText = searchText;
+  }
+
+  setLimitStart(limitStart: number) {
+    this.limitstart = limitStart;
+  }
+
+  setLimit(limit) {
+    this.limit = limit;
+  }
+
+  setOrdering(listOrder) {
+    this.listOrder = listOrder;
+  }
+
+  post(formData) {
+    const url =
+    `${this.env.apiBaseUrl}index.php?option=com_api&app=articles&resource=article&format=raw&key=${this.env.apiKey}`;
+
+    return this._httpClient.post<any>(url, formData);
+  }
 }
