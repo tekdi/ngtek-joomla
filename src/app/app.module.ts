@@ -16,6 +16,7 @@ import { UserLoginModule } from 'projects/user-login/src/lib/user-login.module';
 import { FormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { DetailsComponent } from './details/details.component';
+import { UserComponent } from './user/user.component';
 
 const config = {
   googleClientId : '1005635293950-29g89s87fm0dvj3540rsufta0oguts1l.apps.googleusercontent.com',
@@ -30,7 +31,8 @@ const config = {
     HeaderComponent,
     ListComponent,
     ArticleEditComponent,
-    DetailsComponent
+    DetailsComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
