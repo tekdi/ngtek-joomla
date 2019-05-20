@@ -14,7 +14,7 @@ export class SocialloginService {
   headers: any;
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
-  constructor(private http: HttpClient, private router: Router,  private zone :NgZone) {
+  constructor(private http: HttpClient, private router: Router, private zone: NgZone) {
     this.headers = new HttpHeaders();
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
@@ -32,9 +32,9 @@ export class SocialloginService {
     this.currentUserSubject.next(null);
     this.zone.run(() => {
       this.router.navigate(['/login']);
-      });
+    });
   }
-  
+
   doSocialLogin(accessToken, provider) {
     let payloaddata = '&access_token=' + accessToken + '&provider=' + provider;
 
@@ -47,8 +47,8 @@ export class SocialloginService {
       'provider': provider
     }
 
-    return new Promise(resolve => { 
-       this.http.post(this.baseUrl + this.socialloginApi, userData, { headers: this.headers })
+    return new Promise(resolve => {
+      this.http.post(this.baseUrl + this.socialloginApi, userData, { headers: this.headers })
         .subscribe(res => {
           localStorage.setItem('currentUser', JSON.stringify(res['data']));
           this.currentUserSubject.next(res['data']);

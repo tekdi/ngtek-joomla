@@ -37,7 +37,7 @@ export class SocialloginComponent implements OnInit {
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(res => {
       this.socialloginService.doSocialLogin(res.authToken, res.provider).then(res => {
-        if (this.navUrl) {
+        if (this.navUrl && res['data']) {
           this.router.navigate(['/' + this.navUrl]);
         } else {
           this.loginUserData.emit(res);
@@ -49,7 +49,11 @@ export class SocialloginComponent implements OnInit {
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(res => {
       this.socialloginService.doSocialLogin(res.authToken, res.provider).then(res => {
-        this.loginUserData.emit(res);
+        if (this.navUrl && res['data']) {
+          this.router.navigate(['/' + this.navUrl]);
+        } else {
+          this.loginUserData.emit(res);
+        }
       });
     });
   }

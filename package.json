@@ -24,6 +24,7 @@
     "@kolkov/angular-editor": "^0.14.5",
     "angular-bootstrap-md": "^7.5.2",
     "angular-html-editor": "^0.11.2",
+    "angularx-social-login": "^1.2.7",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",

@@ -18,7 +18,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { DetailsComponent } from './details/details.component';
 import { UserComponent } from './user/user.component';
 
-const config = const config = environment.loginConfig;
+const config = environment.loginConfig;
 
 @NgModule({
   declarations: [
