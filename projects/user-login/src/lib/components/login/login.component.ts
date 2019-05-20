@@ -51,7 +51,8 @@ export class LoginComponent implements OnInit {
     } else {
       this.loginService.init(this.siteUrl);
       this.loginService.login(this.f.username.value, this.f.password.value).subscribe((res) => {
-        if (this.navUrl && res.data) {
+        console.log(res);
+        if (this.navUrl && res['data']) {
           this.router.navigate(['/' + this.navUrl]);
         } else {
           this.loginUserData.emit(res);
