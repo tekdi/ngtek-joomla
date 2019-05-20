@@ -19,7 +19,7 @@ import { DetailsComponent } from './details/details.component';
 import { UserComponent } from './user/user.component';
 
 const config = {
-  googleClientId : '1005635293950-29g89s87fm0dvj3540rsufta0oguts1l.apps.googleusercontent.com',
+  googleClientId : '312478341535-t542no2kv0ffdskdshkreas4drf1ihc1.apps.googleusercontent.com',
   fbAppId : '2037079629930934',
   baseUrl: 'https://smart-citizen.tekdi.net'
 };

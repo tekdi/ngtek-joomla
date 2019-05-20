@@ -70,12 +70,10 @@ export class UserLoginModule {
   static forRoot(config: ComponenetsInterface): ModuleWithProviders {
     console.log(config);
 
-    googleClientId = config.googleClientId;
-    localStorage.setItem("fbAppId", fbAppId);
-    localStorage.setItem("googleClientId", googleClientId);
+    localStorage.setItem("fbAppId", config.fbAppId);
+    localStorage.setItem("googleClientId", config.googleClientId);
     localStorage.setItem("baseUrl", config.baseUrl);
 
-    fbAppId = config.fbAppId;
     return {
       ngModule: UserLoginModule,
       providers: [

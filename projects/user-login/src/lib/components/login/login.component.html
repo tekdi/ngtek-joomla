@@ -1,20 +1,19 @@
 <!-- Default form login -->
 <form class="text-center border-light p-3" [formGroup]="loginForm" (ngSubmit)="doLogin()">
 
-  <div class="container">
 
-    <p class="h4 mb-4">Sign in</p>
-  
-    <!-- Email -->
-    <input class="rr" required formControlName="username" type="text" class="form-control mb-4" placeholder="E-mail/Username">
-  
-    <!-- Password -->
-    <input required formControlName="password" type="password" class="form-control mb-4" placeholder="Password">
-  
-    <!-- Sign in button -->
-    <button mdbBtn color="info" block="true" class="my-4" type="submit"><span class="text-capitalize">Login</span></button>
-  </div>
-  </form>
-  
-  <!-- Default form login -->
-  
+  <p class="h4 mb-4">Sign in</p>
+
+  <!-- Email -->
+  <input class="rr" required formControlName="username" type="text" class="form-control mb-4"
+    placeholder="Username/E-mail">
+
+  <!-- Password -->
+  <input required formControlName="password" type="password" class="form-control mb-4" placeholder="Password">
+
+  <!-- Sign in button -->
+  <button class="btn btn-primary btn-block" block="true" type="submit"><span
+      class="text-capitalize">Login</span></button>
+</form>
+
+<!-- Default form login -->

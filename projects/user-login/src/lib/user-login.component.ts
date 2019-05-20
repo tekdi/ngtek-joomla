@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Input , EventEmitter, Output} from '@angular/core';
+import { Component, OnInit, Inject, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'ngtek-joomla-login',
@@ -6,34 +6,32 @@ import { Component, OnInit, Inject, Input , EventEmitter, Output} from '@angular
   styles: []
 })
 export class UserLoginComponent implements OnInit {
-//@Inject('myconfig') myconfig
-facebook: boolean;
-google: boolean;
-manualLogin: boolean;
-isUserLoggedIn: boolean = false;
-@Input() navUrl: string;
-@Input() userLogin: string;
-@Output() signInUserData = new EventEmitter();
+  facebook: boolean;
+  google: boolean;
+  manualLogin: boolean;
+  isUserLoggedIn: boolean = false;
+  @Input() navUrl: string;
+  @Input() userLogin: string;
+  @Output() signInUserData = new EventEmitter();
 
-  constructor() { 
+  constructor() {
   }
 
   ngOnInit() {
     console.log(this.navUrl);
-    if(this.userLogin){
+    if (this.userLogin) {
       this.facebook = this.userLogin.includes("facebook"); // true
       this.google = this.userLogin.includes("google"); // true
       this.manualLogin = this.userLogin.includes("manual-login"); // true
     }
-    else{
+    else {
       this.manualLogin = true;
     }
   }
 
-  getLoginUserData(data){
-    //this.isUserLoggedIn = true;
+  getLoginUserData(data) {
     this.signInUserData.emit(data);
 
   }
-  
+
 }
