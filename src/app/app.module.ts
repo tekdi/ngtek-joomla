@@ -18,11 +18,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { DetailsComponent } from './details/details.component';
 import { UserComponent } from './user/user.component';
 
-const config = {
-  googleClientId : '1005635293950-29g89s87fm0dvj3540rsufta0oguts1l.apps.googleusercontent.com',
-  fbAppId : '2037079629930934',
-  baseUrl: 'https://smart-citizen.tekdi.net'
-};
+const config = const config = environment.loginConfig;
 
 @NgModule({
   declarations: [
