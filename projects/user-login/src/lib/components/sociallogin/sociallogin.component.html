@@ -1,0 +1,8 @@
+<div class="container">
+  <button [hidden]="!facebook" class="btn btn-primary btn-block fb-color  " block="true" (click)="signInWithFB()">
+    <span class="fa fa-google text-capitalize"> Sign in with facebook</span>
+  </button>
+  <button [hidden]="!google" color="danger" class="btn btn-danger btn-block" block="true" (click)="signInWithGoogle()">
+    <span class="fa fa-google text-capitalize"> Sign in with Google</span>
+  </button>
+</div>

@@ -1,0 +1,19 @@
+<div class="container services pr-0">
+  <div class="row pt-3">
+      <div class="col-12">
+          <h4 class="headline">{{articleData.title}}</h4>
+          <hr />
+          <dl class="details">
+              <dt>Details</dt>
+              <dd>Created By {{articleData.created_by.name}}</dd>
+              <dd>Category:<a href="#">{{articleData.catid.title}}</a></dd>
+              <dd><i class="fa fa-calendar mr-2" aria-hidden="true"></i>Published:{{articleData.created | slice:0:11}}</dd>
+              <dd><i class="fa fa-eye mr-2"></i>Hits:{{articleData.hits}}</dd>
+          </dl>
+          <div class="text-para">
+              <p [innerHTML]="articleData.introtext"></p>
+              <p [innerHTML]="articleData.fulltext"></p>
+          </div>
+      </div>
+  </div>
+</div>

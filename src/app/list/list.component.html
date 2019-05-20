@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="list-top clearfix">
+        <div class="float-right mt-1"><a class="btn btn-sm btn-success"routerLink ="/article" routerLinkActive ="active">Add New</a></div>
+    </div>
+    <table id="memberlist" class="table table-striped table-bordered mt-1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Category Name</th>
+                <th>Author</th>
+                <th>Date Created</th>
+                <th>Hits</th>
+                <th>Id</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor ="let list of articleData">
+                <td><a routerLink="/details/{{list.id}}">{{list.title}}</a></td>
+                <td>{{list.catid.title}}</td>
+                 <td>{{list.created_by.name}}</td>
+                <td>{{list.created | slice:0:11}}</td>
+                <td>{{list.hits}}</td>
+                <td>{{list.id}}</td>
+                <td><a class="btn btn-sm btn-primary" routerLink ="/article/{{list.id}}" routerLinkActive ="active"><i class="fa fa-edit"></i></a></td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
