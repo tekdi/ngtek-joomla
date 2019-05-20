@@ -16,13 +16,13 @@
         </thead>
         <tbody>
             <tr *ngFor ="let list of articleData">
-                <td>{{list.title}}</td>
+                <td><a routerLink="/details/{{list.id}}">{{list.title}}</a></td>
                 <td>{{list.catid.title}}</td>
                  <td>{{list.created_by.name}}</td>
                 <td>{{list.created | slice:0:11}}</td>
                 <td>{{list.hits}}</td>
                 <td>{{list.id}}</td>
-                <td><a class="btn btn-sm btn-primary" routerLink ="/article/{{list.id}}" routerLinkActive ="active" (click) ="edit(list.id)"><i class="fa fa-edit"></i></a></td>
+                <td><a class="btn btn-sm btn-primary" routerLink ="/article/{{list.id}}" routerLinkActive ="active"><i class="fa fa-edit"></i></a></td>
             </tr>
             
         </tbody>

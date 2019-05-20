@@ -1,33 +1,28 @@
 <div class="container services pr-0">
-    <div class="clearfix pt-2">
+    <div class="clearfix">
         <form class="form-row form-inline float-right m-2">
             <div class="col-auto">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search...">
+                    <input #searchText (keyup.enter)="searchByText(searchText.value)" type="text" class="form-control" placeholder="Search for Article...">
                     <div class="input-group-append">
-                        <button class="btn btn-secondary" type="button">
-                        <i class="fa fa-search"></i>
+                        <button class="btn btn-secondary" type="button" (click)="searchByText(searchText.value)">
+                            <i class="fa fa-search"></i>
                         </button>
                     </div>
                 </div>
-            </div> 
+            </div>
             <div class="form-group col-auto">
-                <select name="Category" class="form-control">
-                    <option value="">Select Category</option>
-                    <option value="2">Uncategorized</option>
-                    <option value="8">Sports</option>
-                    <option value="9">News</option>
-                    <option value="10">Health</option>
-                    <option value="11">Education</option>
-                    <option value="12">Career</option>
+                <select name="Category" class="form-control" (click)="searchByCategory($event)" >
+                    <option value="">-- Select Category --</option>
+                    <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.title}}</option>
                 </select>
-            </div>   
+            </div>
         </form>
     </div>
     <div class="row pt-3">
         <div class="col-md-6 mb-4" *ngFor="let data of articleData">
-            <h4 class="headline"><a href="#">{{data.title}}</a></h4>
-            <hr/>
+            <h4 class="headline"><a routerLink="/details/{{data.id}}">{{data.title}}</a></h4>
+            <hr />
             <dl class="details">
                 <dt>Details</dt>
                 <dd>Created By {{data.created_by.name}}</dd>
@@ -39,9 +34,5 @@
                 <p [innerHTML]="data.introtext"></p>
             </div>
         </div>
-    </div> 
-</div>  
-  
-
-
-
+    </div>
+</div>

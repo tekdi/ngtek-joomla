@@ -12,8 +12,8 @@ import { ArticleEditComponent } from './article-edit/article-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContentLibModule } from 'projects/content-lib/src/lib/content-lib.module';
 import { FormsModule } from '@angular/forms';
-
-
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     ArticleComponent,
     HeaderComponent,
     ListComponent,
-    ArticleEditComponent
+    ArticleEditComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     ContentLibModule.forRoot(environment),
-    FormsModule
+    FormsModule,
+    AngularEditorModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [HttpClientModule],

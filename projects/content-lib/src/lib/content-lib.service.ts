@@ -11,8 +11,8 @@ export class ContentLibService {
   limitstart = 0;
   limit = 20;
   listOrder = "ASC";
-  catId: number = null;
-  searchText: string = null;
+  catId = '' ;
+  searchText = '';
 
   constructor(
     private _httpClient: HttpClient,
@@ -21,9 +21,7 @@ export class ContentLibService {
   ) {}
 
   getArticle(id) {
-    const url =
-      `${this.env.apiBaseUrl}index.php?option=com_api&app=articles&resource=article&format=raw&id=` +
-      id;
+    const url = `${this.env.apiBaseUrl}index.php?option=com_api&app=articles&resource=article&format=raw&id=${id}&search=${this.searchText}&category_id=${this.catId}`;
     return this._httpClient.get(url).map(data => {
         if (data) {
             return data["data"]["data"]["results"];
@@ -31,7 +29,7 @@ export class ContentLibService {
     });
   }
 
-  setCategory(catId: number) {
+  setCategory(catId) {
     this.catId = catId;
   }
 
@@ -55,6 +53,10 @@ export class ContentLibService {
     const url =
     `${this.env.apiBaseUrl}index.php?option=com_api&app=articles&resource=article&format=raw&key=${this.env.apiKey}`;
 
-    return this._httpClient.post<any>(url, formData);
+    return this._httpClient.post<any>(url, formData).map(data => {
+      if (data) {
+          return data["data"];
+      }
+    });
   }
 }
