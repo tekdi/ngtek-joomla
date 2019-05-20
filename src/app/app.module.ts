@@ -11,9 +11,17 @@ import { ListComponent } from './list/list.component';
 import { ArticleEditComponent } from './article-edit/article-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContentLibModule } from 'projects/content-lib/src/lib/content-lib.module';
+import { UserLoginModule } from 'projects/user-login/src/lib/user-login.module';
+
 import { FormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { DetailsComponent } from './details/details.component';
+
+const config = {
+  googleClientId : '1005635293950-29g89s87fm0dvj3540rsufta0oguts1l.apps.googleusercontent.com',
+  fbAppId : '2037079629930934',
+  baseUrl: 'https://smart-citizen.tekdi.net'
+};
 
 @NgModule({
   declarations: [
@@ -31,7 +39,8 @@ import { DetailsComponent } from './details/details.component';
     ReactiveFormsModule,
     ContentLibModule.forRoot(environment),
     FormsModule,
-    AngularEditorModule
+    AngularEditorModule,
+    UserLoginModule.forRoot(config)
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [HttpClientModule],

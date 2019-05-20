@@ -9,4 +9,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class AppComponent {
   title = 'ngtek-content-lib';
+  userLogin = ['facebook', 'manual-login', 'google'];
+
+  SignInUserData(event) {
+    console.log(event);
+  }
 }
+

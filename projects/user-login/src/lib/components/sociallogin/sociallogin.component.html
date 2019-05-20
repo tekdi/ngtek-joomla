@@ -1,0 +1,13 @@
+<div class="container">
+
+  <button mdbBtn [hidden]="!facebook" color="primary" class="mb-3 fb-color" block="true" (click)="signInWithFB()">
+    <span class="fa fa-google text-capitalize"> Sign in with facebook</span>
+  </button>
+  <button mdbBtn [hidden]="!google" color="danger" class="mb-3 google-color" block="true" (click)="signInWithGoogle()">
+    <span class="fa fa-google text-capitalize"> Sign in with Google</span>
+
+  </button>
+  <button mdbBtn color="info" block="true" class="mb-3 logout" (click)="signOut()">
+    <span class="fa fa-google text-capitalize"> Logout</span>
+  </button>
+</div>

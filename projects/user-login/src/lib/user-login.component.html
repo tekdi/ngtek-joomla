@@ -1,0 +1,7 @@
+<div [hidden]="isUserLoggedIn">
+    <app-joomla-login [hidden]="!manualLogin"  (loginUserData)="getLoginUserData($event)"></app-joomla-login>
+    <app-joomla-sociallogin  [hidden]="!userLogin" [facebook]="facebook" [google]="google"  (loginUserData)="getLoginUserData($event)">
+    </app-joomla-sociallogin>
+</div>
+
+<router-outlet></router-outlet>
