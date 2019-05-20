@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'projects/user-login/src/lib/providers/login.service';
 
@@ -31,4 +31,7 @@ export class HeaderComponent implements OnInit {
 
     this.userActionName();
   }
+
+  isLogged(event) { }
+
 }

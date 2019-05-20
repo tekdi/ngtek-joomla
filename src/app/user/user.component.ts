@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -9,6 +9,7 @@ export class UserComponent implements OnInit {
 
   userLogin: any;
   navUrl: string;
+  @Output() userLoggedIn = new EventEmitter();
   constructor() {
     this.userLogin = ['facebook', 'manual-login', 'google'];
     this.navUrl = 'articles';
@@ -18,6 +19,6 @@ export class UserComponent implements OnInit {
   }
 
   SignInUserData(event) {
-    console.log(event);
+     this.userLoggedIn.emit('login');
   }
 }
