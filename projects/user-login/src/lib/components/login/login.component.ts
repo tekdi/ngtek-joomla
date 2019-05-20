@@ -44,15 +44,20 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   public doLogin() {
-    this.loginService.init(this.siteUrl);
-    this.loginService.login(this.f.username.value, this.f.password.value).subscribe((res) => {
-      if(this.navUrl)
-      {
-        this.router.navigate(['/' + this.navUrl]);
-      }else{
-        this.loginUserData.emit(res);
-      }
-    });
+    if (!this.f.username.valid) {
+      alert('Please Enter Username/E-mail');
+    } else if (!this.f.password.valid) {
+      alert('Please Enter Password');
+    } else {
+      this.loginService.init(this.siteUrl);
+      this.loginService.login(this.f.username.value, this.f.password.value).subscribe((res) => {
+        if (this.navUrl && res.data) {
+          this.router.navigate(['/' + this.navUrl]);
+        } else {
+          this.loginUserData.emit(res);
+        }
+      });
+    }
   }
 
   getSocialSignInUserData(data) {
