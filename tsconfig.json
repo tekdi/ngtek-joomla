@@ -17,26 +17,6 @@
     "lib": [
       "es2018",
       "dom"
-    ],
-    "paths": {
-      "lib": [
-        "dist/lib"
-      ],
-      "lib/*": [
-        "dist/lib/*"
-      ],
-      "login": [
-        "dist/login"
-      ],
-      "login/*": [
-        "dist/login/*"
-      ],
-      "sociallogin": [
-        "dist/sociallogin"
-      ],
-      "sociallogin/*": [
-        "dist/sociallogin/*"
-      ]
-    }
+    ]
   }
 }

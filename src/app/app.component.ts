@@ -1,11 +1,14 @@
-import { Component, Output } from '@angular/core';
-import { sanitizeUrl } from '@angular/core/src/sanitization/sanitization';
+import { Component,OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
- 
+  title = 'ngtek-content-lib';
+
 }
+

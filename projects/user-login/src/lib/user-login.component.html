@@ -1,0 +1,9 @@
+<div class="row justify-content-center">
+    <div class="col-sm-5">
+<div [hidden]="isUserLoggedIn">
+    <app-joomla-login [navUrl]="navUrl" [hidden]="!manualLogin"  (loginUserData)="getLoginUserData($event)"></app-joomla-login>
+    <app-joomla-sociallogin  [navUrl]="navUrl" [hidden]="!userLogin" [facebook]="facebook" [google]="google"  (loginUserData)="getLoginUserData($event)">
+    </app-joomla-sociallogin>
+</div>
+    </div></div>
+<router-outlet></router-outlet>
